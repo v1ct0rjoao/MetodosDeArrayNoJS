@@ -10,5 +10,3 @@ async function getBuscarLivrosDaAPI() {  //usar assincrona para ela esperar uma 
   exibirLivros(livrosComDesconto)
 }
 
-
-

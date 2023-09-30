@@ -1,15 +1,18 @@
 const elementoParaInserirLivros = document.getElementById('livros')
-//ForEach (elemento, e o que ele deve fazer)
-// livros.forEach(livro => {
-//   console.log(livro)
-// })
+const elementoComValorTotalDelivrosDisponiveis = document.getElementById('valor_total_livros_disponiveis')
 
-function exibirLivros(listaDelivros){
-    elementoParaInserirLivros.innerHTML = " "
-    listaDelivros.forEach(livro => {
-      elementoParaInserirLivros.innerHTML += `
+
+function exibirLivros(listaDelivros) {
+
+  elementoComValorTotalDelivrosDisponiveis.innerHTML = " "
+
+  elementoParaInserirLivros.innerHTML = " "
+  
+  listaDelivros.forEach(livro => {
+    let disponivel = livro.quantidade > 0 ? 'livros__imagens' : 'livro__imagens indisponivel'
+    elementoParaInserirLivros.innerHTML += `
       <div class="livro">
-        <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}"/>
+        <img class="${disponivel}" src="${livro.imagem}" alt="${livro.alt}"/>
         <h2 class="livro__titulo">${livro.titulo}</h2>
         <p class="livro__descricao">${livro.autor}</p>
         <p class="livro__preco" id="preco">R$${livro.preco.toFixed(2)}</p>
@@ -17,7 +20,7 @@ function exibirLivros(listaDelivros){
           <span class="tag">${livro.categoria}</span>
         </div>
       </div>`
-      
-    })
-  }
-  
+
+  })
+}
+
